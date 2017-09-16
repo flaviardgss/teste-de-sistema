@@ -10,35 +10,34 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class CadastroUsuario {
 
-	@Test
+    @Test
 
-	public void adicionarUmUsuario() {
-		
-		System.setProperty("webdriver.gecko.driver", "C:\\Users\\ASUS\\Documents\\Selenium\\geckodriver.exe");
-		WebDriver driver = new FirefoxDriver();
-		driver.get("http://localhost:8080/usuarios/new");
+    public void adicionarUmUsuario() {
 
-		WebElement nome = driver.findElement(By.name("usuario.nome"));
-		WebElement email = driver.findElement(By.name("usuario.email"));
+        System.setProperty("webdriver.gecko.driver", "C:\\Users\\ASUS\\Documents\\Selenium\\geckodriver.exe");
+        WebDriver driver = new FirefoxDriver();
+        driver.get("http://localhost:8080/usuarios/new");
 
-		nome.sendKeys("João da Silva");
-		email.sendKeys("joao.silva@gmail.com");
+        WebElement nome = driver.findElement(By.name("usuario.nome"));
+        WebElement email = driver.findElement(By.name("usuario.email"));
 
-		WebElement botaoSalvar = driver.findElement(By.id("btnSalvar"));
-		botaoSalvar.click();
+        nome.sendKeys("Joao da Silva");
+        email.sendKeys("joao.silva@gmail.com");
 
-		/*
-		 * obs: submit() realiza a mesma ação do click() nome.submit(); email.submit();
-		 * é preciso garantir que Eduardoi foi adicionado. Verde=OK, vermelho=falha.
-		 */
+        WebElement botaoSalvar = driver.findElement(By.id("btnSalvar"));
+        botaoSalvar.click();
 
-		boolean achouNome = driver.getPageSource().contains("João da Silva");
-		boolean achouEmail = driver.getPageSource().contains("joao.silva@gmail.com");
+        /*
+		 * obs: submit() realiza a mesma aï¿½ï¿½o do click() nome.submit(); email.submit();
+		 * Ã© preciso garantir que Eduardoi foi adicionado. Verde=OK, vermelho=falha.
+         */
+        boolean achouNome = driver.getPageSource().contains("Joao da Silva");
+        boolean achouEmail = driver.getPageSource().contains("joao.silva@gmail.com");
 
-		assertTrue(achouNome);
-		assertTrue(achouEmail);
+        assertTrue(achouNome);
+        assertTrue(achouEmail);
 
-		driver.close();
+        driver.close();
 
-	}
+    }
 }
